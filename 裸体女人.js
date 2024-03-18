@@ -1,4 +1,23 @@
 
+   
+// Hesabu sekunde
+let seconds = 20;
+
+// Tumia setInterval kuhesabu sekunde
+let timer = setInterval(function() {
+    seconds--;
+
+    // Onyesha sekunde zilizobaki
+    console.log("Sekunde zilizobaki: " + seconds);
+
+    // Angalia iwapo sekunde zimekwisha
+    if (seconds === 0) {
+        clearInterval(timer); // Acha kuhesabu muda
+        window.location.href = "#"; // Amisha kwenye kurasa ya nyuma
+    }
+}, 1000); // Kila sekunde moja (1000 milliseconds)
+
+
      function showPayment() {
         document.getElementById("loginForm").style.display = "none";
         document.getElementById("payment-form").style.display = "block";
