@@ -102,7 +102,7 @@
         {username: "SSI",     password: "1", phone: "0719834465", expireDate: new Date("2026-03-18")},
         {username: "QE",      password: "1", phone: "0719834465", expireDate: new Date("2026-03-18")},
         {username: "WILLIAM", password: "1", phone: "0719834465", expireDate: new Date("2024-03-22")},
-        {username: "ADMIN",   password: "enockmwananjela027@gmail.com", phone: "enockmwananjela027@gmail.com", expireDate: new Date("2030-03-21")}
+        {username: "ADMIN",   password: "1", phone: "enockmwananjela027@gmail.com", expireDate: new Date("2030-03-21")}
     ];
 
 
