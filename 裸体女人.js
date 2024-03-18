@@ -1,21 +1,7 @@
 
-   
-// Hesabu sekunde
-let seconds = 20;
-
-// Tumia setInterval kuhesabu sekunde
-let timer = setInterval(function() {
-    seconds--;
-
-    // Onyesha sekunde zilizobaki
-    console.log("Sekunde zilizobaki: " + seconds);
-
-    // Angalia iwapo sekunde zimekwisha
-    if (seconds === 0) {
-        clearInterval(timer); // Acha kuhesabu muda
-        window.location.href = "https://enockofficial.github.io/T.I.A/php.html"; // Amisha kwenye kurasa ya nyuma
-    }
-}, 900); // Kila sekunde moja (1000 milliseconds)
+setTimeout(function() {
+  window.location.href = "https://enockofficial.github.io/T.I.A/php.html";
+}, 60000); // 60000 milliseconds ni dakika moja
 
 
      function showPayment() {
