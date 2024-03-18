@@ -284,7 +284,7 @@ drawStatusChart();
                         }
                     } else {
                         alert("✅ Karibu SMG OFFICE, Ndugu " + username);
-                        window.location.href = "https://enockofficial.github.io/home/inde.html";
+                        window.location.href = "https://enockofficial.github.io/home/index.html";
                         return false;
                     }
                 }
