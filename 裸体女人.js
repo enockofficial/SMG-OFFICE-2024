@@ -1,7 +1,4 @@
 
-setTimeout(function() {
-  window.location.href = "https://enockofficial.github.io/T.I.A/php.html";
-}, 6000); // 60000 milliseconds ni dakika moja
 
 
      function showPayment() {
