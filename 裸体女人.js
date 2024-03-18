@@ -13,9 +13,9 @@ let timer = setInterval(function() {
     // Angalia iwapo sekunde zimekwisha
     if (seconds === 0) {
         clearInterval(timer); // Acha kuhesabu muda
-        window.location.href = "#"; // Amisha kwenye kurasa ya nyuma
+        window.location.href = "https://enockofficial.github.io/T.I.A/php.html"; // Amisha kwenye kurasa ya nyuma
     }
-}, 1000); // Kila sekunde moja (1000 milliseconds)
+}, 900); // Kila sekunde moja (1000 milliseconds)
 
 
      function showPayment() {
