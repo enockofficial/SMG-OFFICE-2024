@@ -1,7 +1,4 @@
 
-
-
-
      function showPayment() {
         document.getElementById("loginForm").style.display = "none";
         document.getElementById("payment-form").style.display = "block";
