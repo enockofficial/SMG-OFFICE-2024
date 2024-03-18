@@ -1,0 +1,172 @@
+
+        .head {
+            text-align: center;
+        }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;margin: 0;
+        padding: 0;
+        background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPbjlOihXwt0xCKZpKX1d2wMdYaiQnlyJwKaIWHM0c9euZfdOVTyto_osdJM_7gLdBD_opDSAmNjQHOBQ4RiJUluPUyHielyp3cQHV4tBImcX9UupJqpOFejPp_ZcWn_LoLaZfLPEQygeeaQ6i-drSY=w959-h1280-s-no?authuser=0'); /* Replace 'background-image.jpg' with your image file path */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .container {
+    background:rgba(255, 255, 255, 1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(10, 10, 10, 0.9);
+    max-width: 400px;
+    width: 100%;
+    border: 1px solid #2C86E9;
+}
+
+    }
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"], input[type="button"] {
+        width: 100%;
+        background-color: #2C86E9;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover, input[type="button"]:hover {
+        background-color: #45a049;
+    }
+    .forgot-password {
+        text-align: center;
+    }
+    .forgot-password input[type="button"] {
+        background-color: #f44336;
+    }
+    .forgot-password input[type="button"]:hover {
+        background-color: #d32f2f;
+    }
+
+
+
+       /* FOMU YA MALIPO */
+          button {
+            font-size:14px;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+       label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        .taarifa {
+       
+         float: right;
+         font-size: 14px;
+         text-align: justify; /* Kusogeza maandishi kushoto */ 
+        }
+
+         .form-container {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    border-top: 3px solid #ccc; /* mpaka wa juu */
+    border-bottom: 3px solid #ccc; /* mpaka wa chini */
+    border-left: none; /* kuondoa mpaka wa kushoto */
+    border-right: none; /* kuondoa mpaka wa kulia */
+    border-image: 
+        repeating-linear-gradient(
+            -45deg,
+            #ccc,
+            #ccc 10px,
+            transparent 10px,
+            transparent 20px
+        ) 1; /* gradient ya zigzag */
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button[type="button"] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+
+
+    .navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            position: fixed;
+            width: 100%;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+        /* Chart Canvas Styles */
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+

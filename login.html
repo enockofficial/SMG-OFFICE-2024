@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+ <link rel="stylesheet" href="男人的阴茎.css">
+</head>
+<body>
+
+<div class="container" id="loginForm">
+    <h2 class="head">SMG OFFICE</h2>
+    <form id="login">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" oninput="this.value = this.value.toUpperCase()">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+         <button type="button" onclick="login()">Login</button>
+        <div class="forgot-password">
+            <input type="button" value="Forgot Password?" onclick="showForgotPassword()">
+        </div>
+        <p style="text-align:center; margin-top: 10px;">Don't have an account? <a href="#" onclick="showRegisterForm()">Create Account</a></p>
+
+             <br><br>
+             
+            <input type="button" value="Payment" onclick="showPayment()">
+            </form>
+</div>
+
+<div class="container" id="forgotPasswordForm" style="display: none;">
+    <h2 class="head">Forgot Password</h2>
+    <form id="forgotPassword">
+        <label for="forgotUsername">Username:</label>
+        <input type="text" id="forgotUsername" name="forgotUsername" oninput="this.value = this.value.toUpperCase()">
+        <label for="forgotPhone">Phone Number:</label>
+        <input type="text" id="forgotPhone" name="forgotPhone">
+        <input type="button" value="Submit" onclick="submitForgotPassword()">
+
+       <br><br>
+        <input type="button" value="Back" onclick="showLoginForm()">
+    </form>
+</div>
+
+<div class="container" id="registerForm" style="display: none;">
+    <h2 class="head">Register</h2>
+    <form id="register">
+        <label for="regUsername">Username:</label>
+        <input type="text" id="regUsername" name="regUsername" oninput="this.value = this.value.toUpperCase()">
+        <label for="regPhone">Phone Number:</label>
+        <input type="text" id="regPhone" name="regPhone">
+        <label for="regPassword">New Password:</label>
+        <input type="password" id="regPassword" name="regPassword">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword">
+        <input type="button" value="Submit" onclick="submitRegister()">
+
+         
+       <br><br>
+        <input type="button" value="Back" onclick="showLoginForm()">
+
+    </form>
+</div>
+
+ <div class="container" id="payment-form" style="display: none;margin-bottom: -100px;">
+    <br><br><br>
+    <h2 style="color: #2C86E9;" class="head"><i class="fas fa-credit-card"></i> Taarifa za Malipo</h2>
+       <form id="payment-form"  class="form-container" >
+        <br>
+        <div class="taarifa" style="margin-bottom: 25px;"><b>Hujambo..</b> <br> Nambari ifuatayo ya kulipia kifurushi.<br><br> <b>Nambari ya simu:</b> 255719834465<br> <b>Jina:</b> HENOCK MWANANJELA<br><b>Mtandao:</b> Tigo<br><br> <b>Kumbuka:</b> Lipa kiasi sahihi kulingana na kiasi unachotaka, usiongeze wala usipunguze, pia zingatia kuingiza taarifa sahihi username na password.<br>Lipia kwanza ndo ujaze fomu hii ili kupata huduma sahihi<br> Asante..!</div>
+        <br><br><br>
+        
+        <label for="payer-code">USERNAME:</label>
+        <input type="text" id="payer-code" name="payer-code" oninput="this.value = this.value.toUpperCase()" required>
+
+        <label for="payment-number">PASSWORD:</label>
+        <input type="password" id="payment-number" name="payment-number" required>
+
+
+        <label for="reference-number">KUMBUKUMBU NAMBA:</label>
+        <input type="text" id="reference-number" name="reference-number" required>
+           
+
+        <label for="network">MTANDAO ULIO LIPIA:</label>
+        <select id="network" name="network" required>
+            <option value="M-PESA">M-PESA</option>
+            <option value="TIGOPESA">TIGOPESA</option>
+            <option value="HALOPESA">HALOPESA</option>
+            <option value="AIRTEL-MONEY">AIRTEL-MONEY</option>
+            <!-- Add more network options as needed -->
+        </select>
+
+        <label for="package-level">AINA YA KIFURUSHI:</label>
+        <select id="package-level" name="package-level" onchange="updatePrice()" required>
+            <option value="1">Tap to select a package</option>
+              <option value="1-wiki" > 1 WIKI  </option>
+              <option value="1-mwezi"> MWEZI 1 </option>
+              <option value="2-mwezi"> MIEZI 2 </option>
+              <option value="3-mwezi"> MIEZI 3 </option>
+              <option value="4-mwezi"> MIEZI 4 </option>
+           
+        </select>
+
+        <label for="price"><b>select a package</b></label>
+        <b><span style="color:red" id="price-display">select a package level to see the paid rate.</span></b>
+     <br><br><br>
+        <button type="submit"><b>Tuma taarifa za malipo</b></button><br>
+   <br>
+    </form>
+<br>
+        <input type="button" value="Back" onclick="showLoginForm()">
+  </div>
+
+    <br><br><br>
+
+    <form id="admin" style="display: none;">
+      
+      <div class="navbar">
+    <h1>Admin Panel</h1>
+</div>
+<div style="height: 10000px; padding-top: 50px;">
+    <div class="container">
+        <h3>Welcome to Admin Dashboard</h3>
+        <p>Please use the sidebar to navigate.</p>
+    </div>
+
+</div>
+<div style="background-color: whitesmoke;">
+  <br><br><br>
+<div id="paid">
+    <!-- Paid users table -->
+    <h2> 1.Paid Users </h2>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Phone</th>
+            <th>Expire Date</th>
+        </tr>
+        </thead>
+        <tbody id="paidUsersTableBody">
+        <!-- Paid users data will be populated here -->
+        </tbody>
+    </table>
+</div><br><br><br><br>
+<div id="unpaid">
+    <!-- Unpaid users table -->
+    <h2> 2.Unpaid Users </h2>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Phone</th>
+            <th>Expire Date</th>
+        </tr>
+        </thead>
+        <tbody id="unpaidUsersTableBody">
+        <!-- Unpaid users data will be populated here -->
+        </tbody>
+    </table>
+</div><br><br><br><br>
+<div id="graph">
+    <!-- Graph content here -->
+    <h2> 3.User Expiry Graph </h2>
+    <canvas id="expiryChart"></canvas><br><br><br><br>
+    <h2> 4. User Status Pie Chart </h2>
+    <canvas id="statusChart"></canvas>
+</div><br><br><br><br>
+<div id="all_users" >
+    <!-- All users table -->
+    <h2> 5. All Users</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Phone</th>
+            <th>Expire Date</th>
+        </tr>
+        </thead>
+        <tbody id="allUsersTableBody">
+        <!-- All users data will be populated here -->
+        </tbody>
+    </table>
+</div>
+</div>
+</div><br style="height: 10px;"><br><br></div>
+<div style="height: 100px;"></div>
+
+     
+    </form> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script src="裸体女人.js"></script>
+
+
+
+</body>
+</html>
