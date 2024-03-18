@@ -1,5 +1,12 @@
 
 
+     @media screen and (max-width: 600px) {
+  input[type="text"], textarea, input[type="submit"] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
 
      function showPayment() {
         document.getElementById("loginForm").style.display = "none";
