@@ -105,7 +105,7 @@
         <input type="password" id="confirmPassword" name="confirmPassword">
         <button type="button" value="Submit" onclick="submitRegister()"><i class="fas fa-paper-plane"></i> Submit</button>
        <br><br>
-        <button class="button1" type="button" value="Back" onclick="showLoginForm()"><i class="fas fa-arrow-left"></i> Back</button>
+        <button class="button1" type="button" value="Back" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back</button>
     </form>
 </div>
 <br><br><br><br><br><br><br><br>
@@ -152,6 +152,10 @@
             alert("❌ Please fill in all fields.");
         }
     }
+
+  function goBack() {
+  window.history.back();
+}
 </script>
 
 </body>
