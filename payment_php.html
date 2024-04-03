@@ -136,7 +136,7 @@
     <button type="submit"><b><i class="fas fa-paper-plane"></i> Tuma taarifa za malipo</b></button><br>
     <br>
   </form>
-  <button class="button1" type="button" value="Back" onclick="showLoginForm()"><i class="fas fa-arrow-left"></i> Back</button> 
+  <button class="button1" type="button" value="Back" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back</button> 
 </div><br><br><br><br><br><br><br><br>
 
 <script>
@@ -229,7 +229,9 @@
             });
         });
 
-
+function goBack() {
+  window.history.back();
+}
 
 </script>
 
