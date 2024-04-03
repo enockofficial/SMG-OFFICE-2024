@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/style.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://i.vimeocdn.com/video/1106825973-3e8aa86bdbc51df676b7f6f186e76d5f92eba7e4f19cc9d90e9778b0f5e56616-d_640x360.jpg'), linear-gradient(to bottom, rgba(255,0,0,0.5), rgba(255,0,0,0.5));
+  /*  background-size: cover; */
+}
+
+/* Background kwa vifaa vya skrini ndogo (kama simu) */
+@media only screen and (max-width: 600px) {
+    body {
+        background-image: url('https://i.vimeocdn.com/video/1106825973-3e8aa86bdbc51df676b7f6f186e76d5f92eba7e4f19cc9d90e9778b0f5e56616-d_640x360.jpg'),
+    }
+}
+
+/* Background kwa vifaa vya skrini kubwa (kama kompyuta) */
+@media only screen and (min-width: 601px) {
+    body {
+        background-image: url('https://i.vimeocdn.com/video/1106825973-3e8aa86bdbc51df676b7f6f186e76d5f92eba7e4f19cc9d90e9778b0f5e56616-d_640x360.jpg'),
+    }
+}
+  
+
+
+/*================ admin panel==================*/
+/*================ admin panel==================*/
+/*================ admin panel==================*/
+   
+
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    animation: heartbeat 1.5s ease infinite;
+  }
+
+  @keyframes heartbeat {
+    from {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+
+
+.container1 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      overflow: hidden;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(250, 0, 0, 0.8);
+      padding: 20px;
+      transition: transform 0.3s ease-in-out;
+      background-image: url('https://t3.ftcdn.net/jpg/02/89/76/48/360_F_289764864_gD0wLcJA6AJaCO6SgRbtQraJYevw5Vrb.jpg')
+    }
+
+    .container1:hover {
+      transform: translateY(-50px);
+    }
+
+    #statusPieChart {
+      width: 100%;
+      height: auto;
+      max-width: 400px;
+    }
+
+
+  @keyframes shine {
+    0% {
+      color: green;
+      text-shadow: 0 0 4px whitesmoke;
+    }
+    50% {
+      color: red; /* Rangi ya dhahabu */
+      text-shadow: 0 0 7px green; /* Kivuli cha dhahabu */
+    }
+    100% {
+      color: green;
+      text-shadow: 0 0 4px red;
+    }
+  }
+  h1 {
+    text-align: center;
+    animation: shine 4s infinite; /* Mzunguko wa mng'ao kwa sekunde 2, kwa kudumu milele */
+  }
+
+/*================ admin panel==================*/
+/*================ admin panel==================*/
+/*================ admin panel==================*/
+
+
+
+  .container {
+    max-width: 500%;
+    margin: auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+<br><br><br><br><br><br><br><br><br>
+
+<div class="container1">
+	<h1><i class="fas fa-user-cog fa-4x"></i>  <br>SMG Admin Panel</h1>
+	<br><br>
+ 
+  <div>
+    <h2><i class="fas fa-users"></i> All Users <span id="allUsersCount"></span></h2>
+  </div>
+  <div>
+    <h2><i class="fas fa-check-circle"></i> Paid Users <span style="color: green;" id="paidUsersCount"></span></h2>
+  </div>
+  <div>
+    <h2><i class="fas fa-times-circle"></i> Unpaid Users <span style="color: red;" id="unpaidUsersCount"></span></h2>
+  </div>
+  <div>
+    <canvas id="statusPieChart"></canvas>
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+<div class="container3">
+<div class="container">
+
+  <div>
+    <h2>User Expiry Line Graph</h2>
+    <canvas id="expiryLineChart"></canvas>
+  </div>
+
+  <div style="display: none;">
+    <h2>User Status Pie Chart</h2>
+    <canvas id="statusPieChart"></canvas>
+  </div>
+
+  <div>
+    <h2>User Line Graph</h2>
+    <canvas id="userLineChart"></canvas>
+  </div>
+
+  <div>
+    <h2>User Bar Graph</h2>
+    <canvas id="userBarChart"></canvas>
+  </div>
+
+  <h2>All User Table</h2>
+  <table id="allUserTable">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Phone</th>
+        <th>Expire Date</th>
+        <th>Block Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- User data will be added dynamically here -->
+    </tbody>
+  </table>
+   <br><br>
+  <h2>Paid User Table</h2>
+  <table id="paidUserTable">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Phone</th>
+        <th>Expire Date</th>
+        <th>Block Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Paid user data will be added dynamically here -->
+    </tbody>
+  </table>
+   <br><br>
+  <h2>Unpaid User Table</h2>
+  <table id="unpaidUserTable">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Phone</th>
+        <th>Expire Date</th>
+        <th>Block Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Unpaid user data will be added dynamically here -->
+    </tbody>
+  </table>
+</div>
+<br><br>
+<br><br>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.js"></script>
+<script src="OFFICIAL.js"></script>
+
+</body>
+</html>
+
+

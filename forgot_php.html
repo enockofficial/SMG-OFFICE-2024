@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forgot Form</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://furtherafrica.com/content-files/uploads/2021/06/peter-mitchell-lZLgqIiFHSw-unsplash-e1623752156244.jpg'); /* Default background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .container {
+    max-width: 330px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  }
+  .head {
+    text-align: center;
+  }
+  .form-container {
+    max-width: 400px;
+    margin: auto;
+  }
+  label {
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  button {
+    width: 100%;
+    background-color: #2C86E9;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: green;
+  }
+  .taarifa {
+    background-color: #f3f3f3;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  input[type="button"] {
+    width: 100%;
+    background-color: #ddd;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type="button"]:hover {
+    background-color: #bfbfbf;
+  }
+  .button1 {
+    width: 100%;
+    background-color: red;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .button1:hover {
+    background-color: #245eea;
+  }
+   .button2 {
+    width: 100%;
+    background-color: green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .button2:hover {
+    background-color: #245eea;
+  }
+</style>
+</head>
+<body>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="container" id="forgotPasswordForm" style="display: block;">
+    <h2 class="head"><i class="icon fas fa-key"></i> Forgot Password</h2>
+    <form id="forgotPassword">
+        <label for="forgotUsername">Username:</label>
+        <input type="text" id="forgotUsername" name="forgotUsername" oninput="this.value = this.value.toUpperCase()">
+        <label for="forgotPhone">Phone Number:</label>
+        <input type="text" id="forgotPhone" name="forgotPhone">
+        <button type="button" onclick="submitForgotPassword()"><b><i class="fas fa-paper-plane"></i> Submit</b></button><br>
+
+       <br><br>
+        <button class="button1" type="button" value="Back" onclick="showLoginForm()"><i class="fas fa-arrow-left"></i> Back</button> 
+    </form>
+</div>
+<br><br><br><br><br><br><br><br>
+
+<script src="OFFICIAL.js"></script>
+
+</body>
+</html>
