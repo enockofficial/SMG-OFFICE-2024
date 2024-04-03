@@ -1,4 +1,6 @@
-
+function goBack() {
+  window.history.back();
+}
 
 
 //------------------------- LOGIN FORM ------------------------//
