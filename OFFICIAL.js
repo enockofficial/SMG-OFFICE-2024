@@ -3,39 +3,9 @@ function goBack() {
 }
 
 
- function fetchChanges() {
-            const username = 'enockofficial';
-            const repoName = 'SMG-OFFICE-2024';
-
-            fetch(`https://api.github.com/repos/${username}/${repoName}/commits`)
-                .then(response => response.json())
-                .then(data => {
-                    const changesDiv = document.getElementById('changes');
-                    changesDiv.innerHTML = ''; // Clear existing content
-                    data.forEach(commit => {
-                        const commitMessage = commit.commit.message;
-                        const commitAuthor = commit.commit.author.name;
-                        const commitDate = commit.commit.author.date;
-
-                        const commitInfo = `
-                            <div>
-                                <p><strong>Message:</strong> ${commitMessage}</p>
-                                <p><strong>Author:</strong> ${commitAuthor}</p>
-                                <p><strong>Date:</strong> ${commitDate}</p>
-                            </div>
-                        `;
-
-                        changesDiv.innerHTML += commitInfo;
-                    });
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        }
-
-        // Fetch changes when the page loads
-        window.onload = fetchChanges;
-
-        // Fetch changes every 30 seconds (adjust as needed)
-        setInterval(fetchChanges, 30000); // 30 seconds
+ setTimeout(function() {
+            location.reload();
+        }, 8000);
 
 
 
