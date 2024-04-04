@@ -139,42 +139,7 @@
         window.location.href = "https://enockofficial.github.io/SMG-OFFICE-2024/payment_php.html";
     }
 
-   
-
-
-
-
-     function fetchCommits() {
-            const username = 'enockofficial';
-            const repoName = 'SMG-OFFICE-2024';
-            const changesDiv = document.getElementById('changes');
-
-            fetch(`https://api.github.com/repos/${username}/${repoName}/commits`)
-                .then(response => response.json())
-                .then(data => {
-                    changesDiv.innerHTML = ''; // Clear existing commits
-                    data.forEach(commit => {
-                        const commitMessage = commit.commit.message;
-                        const commitAuthor = commit.commit.author.name;
-                        const commitDate = commit.commit.author.date;
-
-                        const commitInfo = `
-                            <div>
-                                <p><strong>Message:</strong> ${commitMessage}</p>
-                                <p><strong>Author:</strong> ${commitAuthor}</p>
-                                <p><strong>Date:</strong> ${commitDate}</p>
-                            </div>
-                        `;
-
-                        changesDiv.innerHTML += commitInfo;
-                    });
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        }
-
-        window.onload = fetchCommits;
-        // Refresh commits every 5 minutes
-        setInterval(fetchCommits, 300000); // 5 minutes = 300000 milliseconds
+  
   </script>
 
 
