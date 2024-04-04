@@ -3,10 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
 <title>Login Form</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
@@ -142,6 +138,35 @@
     function showPayment() {
         window.location.href = "https://enockofficial.github.io/SMG-OFFICE-2024/payment_php.html";
     }
+
+     window.onload = function() {
+    // Jina la mtumiaji wa GitHub na jina la repo
+    const username = 'enockofficial';
+    const repoName = 'SMG-OFFICE-2024';
+
+    // Omba data kutoka GitHub API
+    fetch(`https://api.github.com/repos/${username}/${repoName}/commits`)
+        .then(response => response.json())
+        .then(data => {
+            const changesDiv = document.getElementById('changes');
+            data.forEach(commit => {
+                const commitMessage = commit.commit.message;
+                const commitAuthor = commit.commit.author.name;
+                const commitDate = commit.commit.author.date;
+
+                const commitInfo = `
+                    <div>
+                        <p><strong>Message:</strong> ${commitMessage}</p>
+                        <p><strong>Author:</strong> ${commitAuthor}</p>
+                        <p><strong>Date:</strong> ${commitDate}</p>
+                    </div>
+                `;
+
+                changesDiv.innerHTML += commitInfo;
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+};
   </script>
 
 
