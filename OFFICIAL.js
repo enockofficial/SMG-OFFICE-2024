@@ -3,9 +3,9 @@ function goBack() {
 }
 
 
- setTimeout(function() {
-            location.reload();
-        }, 8000);
+// setTimeout(function() {
+  //          location.reload();
+    //    }, 8000);
 
 
 
