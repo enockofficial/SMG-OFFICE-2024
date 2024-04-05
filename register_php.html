@@ -13,7 +13,9 @@
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/ab/Dar_es_Salaam_-_Posta.jpg'); /* Default background image */
  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-position: center; 
+   overflow-x: hidden;
+    background-attachment: fixed;
   }
   .container {
     max-width: 330px;
@@ -90,7 +92,7 @@
 </style>
 </head>
 <body>
-    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br>
 
 <div class="container" id="registerForm" style="display: block;">
     <h2 class="head"><i class="icon fas fa-user-plus"></i> Register</h2>
@@ -108,7 +110,7 @@
         <button class="button1" type="button" value="Back" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back</button>
     </form>
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 
 <script>
     function sendTelegramMessage(message) {
