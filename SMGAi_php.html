@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SMG Ai</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+   body {
+    /* Background linear gradient */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.0), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)),
+                /* Background image */
+                url('https://thumbs.dreamstime.com/b/wall-backgrounds-16268126.jpg');
+    /* Set background size to cover entire viewport */
+    background-size: cover;
+    /* Center the background image */
+    background-position: center;
+    /* Do not repeat the background image */
+    background-repeat: no-repeat;
+    /* Set body height to full viewport height */
+    height: 100vh;
+    /* Hide horizontal overflow to prevent scrolling */
+    overflow-x: hidden;
+    /* Ensure background attachment fixed to prevent scrolling */
+    background-attachment: fixed;
+}
+
+.banner_section {
+ /*   background-color: #343a40; */
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.0), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)), 
+               url('https://i.makeagif.com/media/10-18-2016/VIxxNm.gif');
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#answer-button {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+}
+
+#copy-btn {
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer; 
+}
+
+.styled-response {
+    margin-top: 20px;
+}
+
+.styled-response-box {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.footer_section {
+   /* background-color: #343a40; */
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.0), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)), 
+               url('https://i.makeagif.com/media/10-18-2016/VIxxNm.gif');
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.custom-btn {
+   /* background-color: #343a40; */
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.0), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)), 
+               url('https://i.makeagif.com/media/10-18-2016/VIxxNm.gif');
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    .banner_section h1 {
+        font-size: 24px;
+    }
+    .custom-btn {
+        width: 80%;
+        height: 40px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .banner_section h1 {
+        font-size: 20px;
+    }
+    .custom-btn {
+        width: 90%;
+        height: 40px;
+        margin-top: 10px; /* Adjust margin-top for smaller screens */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="banner_section">
+        <h1><i class="fas fa-robot"></i> SMG Ai</h1>
+    </div>
+    <br><br><br><br>
+    <div class="call-to-action-area">
+        <div class="container">
+            <div class="form-group">
+                <textarea type="text" class="form-control" id="user-question" placeholder="Ask a question" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <button id="answer-button" class="btn btn-large">
+                   <i class="fas fa-mouse-pointer"></i> Click Answer
+                </button>
+            </div>
+
+
+            <div class="form-group" style="position: relative;">
+                <textarea class="form-control" id="chatgpt-response" placeholder="Response" rows="10" resize="none" readonly="true"></textarea>
+                <center> <button id="copy-btn"><i class="fas fa-copy"> </i><b>Copy</b></button>
+            </div>
+            <div class="styled-response" id="styled-response"></div>
+        </div>
+        <br><br><br><br><br><br><br><br>
+    </div>
+    <div class="footer_section">
+    <center>
+        <a href="https://www.instagram.com/official_smgtz?igsh=aHR2OWkwamUybDc1">
+            <button class="btn-11 custom-btn" style="width: 40vw; height: 40px; margin-top: 10px;"><b style="color: white;"><i class="fas fa-wrench"></i>  developed by SMG CEO</b></button>
+        </a>
+    </center>
+    </div>
+    <script>
+        document.getElementById("answer-button").addEventListener("click", callCHATGPT);
+
+        async function callCHATGPT() {
+            const responseText = document.getElementById("chatgpt-response");
+            responseText.innerHTML = "SmgAi Loading the answer..."; // Display loading message
+
+
+            const xhr = new XMLHttpRequest();
+            let url = "https://chatgpt.apinepdev.workers.dev";
+            const userQuestion = encodeURIComponent(document.getElementById("user-question").value);
+            url += `?question=${userQuestion}`;
+            xhr.open("GET", url, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const response = JSON.parse(xhr.responseText);
+                    const answer = response.answer;
+
+                    responseText.innerHTML = answer; // Display the answer
+
+                    const styledResponse = document.getElementById("styled-response");
+                    styledResponse.innerHTML = `
+                        <div class="styled-response-box">
+                            ${answer}
+                        </div>
+                    `;
+                }
+            };
+            xhr.send();
+        }
+
+        document.getElementById("copy-btn").addEventListener("click", copyOutput);
+
+        function copyOutput() {
+            const output = document.getElementById("chatgpt-response");
+            output.select();
+            document.execCommand("copy");
+        }
+    </script>
+</body>
+</html>
