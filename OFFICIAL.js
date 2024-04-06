@@ -146,17 +146,17 @@ function goBack() {
 //------------------------- ADMIN PANEL ------------------------//
 
   var users = [
-    {username: "ENOCK",   password: "1", phone: "0719834465", expireDate: new Date("2027-03-21")},
-    {username: "NOAH",    password: "1", phone: "0719834465", expireDate: new Date("2025-03-15")},
-    {username: "IMMA",    password: "1", phone: "0719834465", expireDate: new Date("2023-03-18")},
-    {username: "WEWE",    password: "1", phone: "0719834465", expireDate: new Date("2023-03-18")},
-    {username: "SISI",    password: "1", phone: "0719834465", expireDate: new Date("2020-03-18")},
-    {username: "QWE",     password: "1", phone: "0719834465", expireDate: new Date("2023-03-18")},
-    {username: "WWE",     password: "1", phone: "0719834465", expireDate: new Date("2023-04-18")},
-    {username: "SSI",     password: "1", phone: "0719834465", expireDate: new Date("2023-03-18")},
-    {username: "QE",      password: "1", phone: "0719834465", expireDate: new Date("2026-03-18")},
-    {username: "WILLIAM", password: "1", phone: "0719834465", expireDate: new Date("2024-03-22")},
-    {username: "ADMIN",   password: "1", phone: "1", expireDate: new Date("2030-03-21")}
+    {username: "ENOCK",   password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2027-03-21")},
+    {username: "NOAH",    password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2025-03-15")},
+    {username: "IMMA",    password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2023-03-18")},
+    {username: "WEWE",    password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2023-03-18")},
+    {username: "SISI",    password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2020-03-18")},
+    {username: "QWE",     password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2023-03-18")},
+    {username: "WWE",     password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2023-04-18")},
+    {username: "SSI",     password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2023-03-18")},
+    {username: "QE",      password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2026-03-18")},
+    {username: "WILLIAM", password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2024-03-22")},
+    {username: "ADMIN",   password: "1", phone: "1", paidDate: new Date("2022-03-01"), expireDate: new Date("2030-03-21")}
   ];
 
   // Display all users in table
