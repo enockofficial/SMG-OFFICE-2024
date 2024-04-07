@@ -44,9 +44,19 @@
   }
  </style>
    <script>
-function goBack() {
-  window.history.back();
-}
+   // Functi ya kutoka
+    document.getElementById('logoutButton').addEventListener('click', function() {
+        logoutUser();
+    });
+
+    function logoutUser() {
+        // Rudisha mtumiaji kwenye ukurasa wa kuingia
+        window.location.href = 'LOGIN.html';
+
+        // Futa historia ya kivinjari ili kurudi kwenye kivinjari
+        // Hii itazuia kurudi kwenye kurasa zilizopita kwa kutumia kifungo cha "back"
+        window.history.replaceState(null, null, 'LOGIN.html');
+    }
 </script>
 	</head>
 	<body class="is-preload">
@@ -82,7 +92,7 @@ function goBack() {
 							<li><a href="about_smg.html">About</a></li>
 							<li><a href="#contact">Contact</a></li>
 							<li><a href="https://enockofficial.github.io/SMG-OFFICE-2024/profile_php.html">Profile</a></li>
-							<li><a href="#" onclick="goBack()">Logout</a></li>
+							<li><a href="#" id="logoutButton">Logout</a></li>
 						</ul>
 					</nav>
 
@@ -99,10 +109,10 @@ function goBack() {
 										<img src="https://static.vecteezy.com/system/resources/previews/014/600/293/original/smg-letter-logo-design-in-illustration-logo-calligraphy-designs-for-logo-poster-invitation-etc-vector.jpg" alt="" />
 									</span>
 									<a href="generic.html">
-										<i class="fas fa-envelope fa-2x"></i><br>
+										<i class="fas fa-envelope fa-2x"></i>
 										<h2> Letter</h2>
 										<div class="content">
-											<p>This template helps you write a formal or informal letter into a PDF file for easy distribution.</p>
+											<p>Write a formal or informal letter into a PDF file for easy distribution.</p>
 										</div>
 									</a>
 								</article>
@@ -111,10 +121,10 @@ function goBack() {
 										<img src="https://static.vecteezy.com/system/resources/previews/014/600/293/original/smg-letter-logo-design-in-illustration-logo-calligraphy-designs-for-logo-poster-invitation-etc-vector.jpg" alt="" />
 									</span>
 									<a href="generic.html">
-										<i class="fas fa-file-alt fa-2x"></i> <br>
-										<h2>Curriculum vitae</h2>
+										<i class="fas fa-file-alt fa-2x"></i>
+										<h2>Curriculum <br>vitae</h2>
 										<div class="content">
-											<p>This template helps you create your CV directly into a PDF file.</p>
+											<p>Create your CV directly into a PDF file.</p>
 										</div>
 									</a>
 								</article>
@@ -123,10 +133,10 @@ function goBack() {
 										<img src="https://static.vecteezy.com/system/resources/previews/014/600/293/original/smg-letter-logo-design-in-illustration-logo-calligraphy-designs-for-logo-poster-invitation-etc-vector.jpg" alt="" />
 									</span>
 									<a href="generic.html">
-										<i class="fas fa-tasks fa-2x"></i><br>
+										<i class="fas fa-tasks fa-2x"></i>
 										<h2> Assignment</h2>
 										<div class="content">
-											<p>This template helps you write and edit an assignment or college project into a PDF file for easy submission.</p>
+											<p>Write and edit an assignment into a PDF file for easy submission.</p>
 										</div>
 									</a>
 								</article>
@@ -135,10 +145,10 @@ function goBack() {
 										<img src="https://static.vecteezy.com/system/resources/previews/014/600/293/original/smg-letter-logo-design-in-illustration-logo-calligraphy-designs-for-logo-poster-invitation-etc-vector.jpg" alt="" />
 									</span>
 									<a href="https://enockofficial.github.io/SMG-OFFICE-2024/SMGAi_php.html">
-										<i class="fas fa-robot fa-2x"></i><br>
+										<i class="fas fa-robot fa-2x"></i>
 										<h2>SMG Ai</h2>
 										<div class="content">
-											<p>We give you the opportunity to ask anything and receive answers from AI.</p>
+											<p>Tap to ask anything and receive answers from Ai.</p>
 										</div>
 									</a>
 								</article>
@@ -148,9 +158,9 @@ function goBack() {
 									</span>
 									<a href="#">
 										<i class="fas fa-lock fa-2x"></i>
-										<h2>COMING SOON</h2>
+										<h2>COMING <br>SOON</h2>
 										<div class="content">
-											<p>It's coming soon, still under development.</p>
+											<p>Still under development.</p>
 										</div>
 									</a>
 								</article>
@@ -160,9 +170,9 @@ function goBack() {
 									</span>
 									<a href="#">
 										<i class="fas fa-lock fa-2x"></i>
-										<h2>COMING SOON</h2>
+										<h2>COMING <br>SOON</h2>
 										<div class="content">
-											<p>It's coming soon, still under development.</p>
+											<p>Still under development.</p>
 										</div>
 									</a>
 								</article>
@@ -310,23 +320,7 @@ function goBack() {
                 form.reset();
             });
 
-            function sendMessageToTelegramBot(text) {
-                // Replace 'YOUR_BOT_TOKEN' and 'YOUR_CHAT_ID' with actual values
-                const botToken = '7101784171:AAEgdyinnaj9BZnpSo0TVgVJjkDj5aqiYB8';
-                const chatId = '5479041930';
-                const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
-
-                fetch(url)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(data => console.log(data))
-                    .catch(error => console.error('Error:', error));
-            }
-        });
+          
     </script>
 	</body>
 </html>
