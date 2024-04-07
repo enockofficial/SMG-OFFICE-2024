@@ -5,6 +5,24 @@
 */
 
 
+  function sendMessageToTelegramBot(text) {
+                // Replace 'YOUR_BOT_TOKEN' and 'YOUR_CHAT_ID' with actual values
+                const botToken = '7101784171:AAEgdyinnaj9BZnpSo0TVgVJjkDj5aqiYB8';
+                const chatId = '5479041930';
+                const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
+
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => console.log(data))
+                    .catch(error => console.error('Error:', error));
+            }
+        });
+
 
 
 (function($) {
