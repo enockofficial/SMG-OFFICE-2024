@@ -3,22 +3,7 @@ function goBack() {
 }
 
 
-// Force browser to always load the latest version of the page from the server
-window.onload = function() {
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://enockofficial.github.io/SMG-OFFICE-2024/login_php.html', true);
-  xhr.setRequestHeader('Cache-Control', 'no-cache');
-  xhr.setRequestHeader('Pragma', 'no-cache');
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      var newContent = xhr.responseText;
-      document.open();
-      document.write(newContent);
-      document.close();
-    }
-  };
-  xhr.send();
-};
+
 
 
 //------------------------- LOGIN FORM ------------------------//
