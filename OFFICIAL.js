@@ -103,7 +103,7 @@ function goBack() {
                     }
                 }
             } else {
-                alert("❌ Taarifa batili. Tafadhali jisajili au Ingia taarifa sahihi");
+                alert("❌ Taarifa batili. Tafadhali jisajili au Ingiza taarifa sahihi");
             }
         } else {
             alert("❌ Tafadhali jaza sehemu zote.");
@@ -213,7 +213,7 @@ function goBack() {
     {username: "SSI",     password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
     {username: "QE",      password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
     {username: "WILLIAM", password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
-    {username: "ADMIN",   password: "1", phone: "1", registerDate: new Date("2024-04-13"), paidDate: new Date("2022-03-01"), expireDate: new Date("2024-04-16")}
+    {username: "ADMIN",   password: "1", phone: "1", registerDate: new Date("2024-04-13"), paidDate: new Date("2022-03-01"), expireDate: new Date("2024-05-1")}
   ];
 
   // Display all users in table
