@@ -203,8 +203,8 @@ function goBack() {
 //------------------------- ADMIN PANEL ------------------------//
 
   var users = [
-    {username: "ENOCK",   password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
-    {username: "NOAH",    password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
+    {username: "ENOCK",   password: "2", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-19")},
+    {username: "NOAH",    password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-15")},
     {username: "IMMA",    password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
     {username: "WEWE",    password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
     {username: "SISI",    password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
