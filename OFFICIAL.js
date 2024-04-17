@@ -76,7 +76,7 @@ function goBack() {
                     if (confirmPurchase) {
                         setTimeout(function(){
                             window.location.href = "https://enockofficial.github.io/SMG-OFFICE-2024/payment_php.html";
-                        }, 2000);
+                        }, 500);
                     }
                 } else {
                     if (username === "ADMIN") {
