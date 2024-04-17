@@ -3,7 +3,62 @@ function goBack() {
 }
 
 
+    function getRemainingDays(expireDate) {
+    var today = new Date();
+    var oneDay = 12 * 60 * 60 * 1000; // hours * minutes * seconds * milliseconds
+    var remainingDays = Math.round((expireDate - today) / oneDay);
+    return remainingDays;
+  }
 
+  function updateNotificationBadge() {
+    var pendingNotifications = users.filter(function(user) {
+      var remainingDays = getRemainingDays(user.expireDate);
+      return remainingDays === 1; // Only include users expiring exactly one day ahead
+    });
+
+    var notificationBadge = document.getElementById("notificationBadge");
+    notificationBadge.textContent = pendingNotifications.length;
+  }
+
+  function displayNotificationList() {
+    var userList = document.getElementById("userList");
+    userList.innerHTML = ""; // Clear previous content
+
+    var pendingNotifications = users.filter(function(user) {
+      var remainingDays = getRemainingDays(user.expireDate);
+      return remainingDays === 1; // Only include users expiring exactly one day ahead
+    });
+
+    pendingNotifications.forEach(function(user) {
+      var listItem = document.createElement("li");
+      listItem.textContent = user.username + " (Expires tomorrow)";
+      listItem.classList.add("user-list-item");
+
+      // Show details on click
+      listItem.addEventListener('click', function() {
+        alert("User Details:\n\nUsername: " + user.username + "\nPhone: " + user.phone + "\nPaid Date: " + user.paidDate.toDateString() + "\nExpire Date: " + user.expireDate.toDateString());
+      });
+
+      userList.appendChild(listItem);
+    });
+
+    // Toggle display of notification container
+    var notificationContainer = document.getElementById("notificationContainer");
+    notificationContainer.style.display = (notificationContainer.style.display === "block") ? "none" : "block";
+  }
+
+  window.onload = function() {
+    // Update notification badge count initially
+    updateNotificationBadge();
+
+    // Add click event to notification icon
+    var notificationIcon = document.getElementById("notificationIcon");
+
+    notificationIcon.addEventListener('click', function() {
+      // Display or hide notification container
+      displayNotificationList();
+    });
+  };
 
 
 //------------------------- LOGIN FORM ------------------------//
@@ -140,20 +195,25 @@ function goBack() {
 
 
 
+
+
+
+
+
 //------------------------- ADMIN PANEL ------------------------//
 
   var users = [
-    {username: "ENOCK",   password: "1", phone: "0719834465", paidDate: new Date("2023-03-01"), expireDate: new Date("2025-04-8")},
-    {username: "NOAH",    password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2025-03-15")},
-    {username: "IMMA",    password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2023-03-18")},
-    {username: "WEWE",    password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2023-03-18")},
-    {username: "SISI",    password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2020-03-18")},
-    {username: "QWE",     password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2023-03-18")},
-    {username: "WWE",     password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2023-04-18")},
-    {username: "SSI",     password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2023-03-18")},
-    {username: "QE",      password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2026-03-18")},
-    {username: "WILLIAM", password: "1", phone: "0719834465", paidDate: new Date("2022-03-01"), expireDate: new Date("2024-03-22")},
-    {username: "ADMIN",   password: "1", phone: "1", paidDate: new Date("2022-03-01"), expireDate: new Date("2030-03-21")}
+    {username: "ENOCK",   password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
+    {username: "NOAH",    password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
+    {username: "IMMA",    password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
+    {username: "WEWE",    password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
+    {username: "SISI",    password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
+    {username: "QWE",     password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
+    {username: "WWE",     password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
+    {username: "SSI",     password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
+    {username: "QE",      password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
+    {username: "WILLIAM", password: "1", phone: "0719834465", registerDate: new Date("2024-04-15"), paidDate: new Date("2024-04-15"), expireDate: new Date("2024-04-16")},
+    {username: "ADMIN",   password: "1", phone: "1", registerDate: new Date("2024-04-13"), paidDate: new Date("2022-03-01"), expireDate: new Date("2024-04-16")}
   ];
 
   // Display all users in table
