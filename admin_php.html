@@ -12,16 +12,16 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('https://i.vimeocdn.com/video/1106825973-3e8aa86bdbc51df676b7f6f186e76d5f92eba7e4f19cc9d90e9778b0f5e56616-d_640x360.jpg'), linear-gradient(to bottom, rgba(255,0,0,0.5), rgba(255,0,0,0.5));
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    overflow-x: hidden;
-    background-attachment: fixed;
+    font-size: 12px;
+    background-image: url('https://img.freepik.com/free-vector/gradient-technological-background_23-2148884155.jpg'), linear-gradient(to bottom, rgba(255,0,0,0.5), rgba(255,0,0,0.5));
   /*  background-size: cover; */
+   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; 
+   overflow-x: hidden;
+    background-attachment: fixed;
 }
-
+ 
 /* Background kwa vifaa vya skrini ndogo (kama simu) */
 @media only screen and (max-width: 600px) {
     body {
@@ -36,6 +36,44 @@
     }
 }
   
+
+
+  .containerh {
+            max-width: 92%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            font-size: 12px;
+        }
+
+        .dashboard-containerh {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .dashboard-item {
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+
+
+        .dashboard-item h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-item p {
+            font-size: 18px;
+            margin: 5px 0;
+            font-weight: bold;
+        }
 
 
 /*================ admin panel==================*/
@@ -127,7 +165,7 @@
 
 
   .container {
-    max-width: 500%;
+    max-width: 92%;
     margin: auto;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -142,7 +180,7 @@
   th, td {
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
   }
   th {
     background-color: #f2f2f2;
@@ -151,14 +189,92 @@
     max-width: 100%;
     height: auto;
   }
+
+
+
+
+     /* Add your notification system */
+    .notification-container {
+      display: none; /* Initially hidden */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      max-width: 80%;
+      overflow-y: auto;
+      max-height: 80%;
+      z-index: 999;
+    }
+
+    .user-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .user-list-item {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .user-list-item:hover {
+      background-color: #f9f9f9;
+    }
+
+    /* Styles for notification icon and badge */
+    #notificationIcon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      color: #007bff;
+      font-size: 24px;
+    }
+
+    #notificationBadge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 5px;
+      font-size: 12px;
+    }
+
+    .noti {
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+      background-color: rgba(255, 255, 255, 0.7);
+    }
 </style>
 </head>
 <body>
-<br><br><br><br><br><br><br><br><br>
+<br><br>
+
+<!-- Notification icon with badge -->
+<div class="noti" id="notificationIcon">
+  <i class="fa fa-bell"></i>
+  <span id="notificationBadge">0</span>
+</div>
+
+<!-- Notification container -->
+<div class="notification-container" id="notificationContainer">
+  <h2>Notification List</h2>
+  <ul class="user-list" id="userList"></ul>
+</div>
+
+<br><br><br><br><br><br><br>
 
 <div class="container1">
-    <h1><i class="fas fa-user-cog fa-4x"></i>  <br>SMG Admin Panel</h1>
-    <br><br>
+	<h1><i class="fas fa-user-cog fa-4x"></i>  <br>SMG Admin Panel</h1>
+	<br><br><br>
  
   <div>
     <h2><i class="fas fa-users"></i> All Users <span id="allUsersCount"></span></h2>
@@ -172,13 +288,44 @@
   <div>
     <canvas id="statusPieChart"></canvas>
   </div>
+
 </div>
 
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<div class="containerh">
+        <div class="dashboard-containerh">
+            <div class="dashboard-item" style="background-image: url(https://img.freepik.com/free-vector/gray-abstract-wireframe-background_53876-99911.jpg);">
+                <h2><i style="color: mediumblue;" class="fas fa-balance-scale"></i> TOTAL BALANCE</h2>
+                <p id="totalBalance"></p>
+            </div>
+            <div class="dashboard-item" style="background-image: url(https://i.pinimg.com/736x/90/e8/a5/90e8a546d883f14971b3c67b7c2419f5.jpg);">
+                <h2><i style="color: mediumblue;" class="fas fa-user-check"></i> Total User Paid</h2>
+                <p id="totalUsersPaid"></p>
+            </div>
+            <div class="dashboard-item" style="background-image: url(https://img.freepik.com/free-vector/gradient-white-monochrome-background_23-2149017048.jpg);">
+                <h2><i style="color: mediumblue;" class="fas fa-money-bill-wave"></i> Total Price per Day</h2>
+                <p id="totalPricePerDay"></p> 
+            </div>
+            <div class="dashboard-item" style="background-image: url(https://img.freepik.com/free-vector/paper-style-white-monochrome-background_23-2149001605.jpg);">
+                <h2><i style="color: mediumblue;" class="fas fa-calendar-day"></i> Today Transaction</h2>
+                <p id="totalPaidToday"></p>
+            </div>
+            <div class="dashboard-item" id="totalPaidTodayContainer" style="background-image: url(https://img.freepik.com/free-vector/gray-abstract-wireframe-background_53876-99911.jpg);">
+                <h2><i style="color: mediumblue;" class="fas fa-calendar-alt"></i> Total Paid Remain</h2>
+                <p><span id="totalPaidAmount"></span></p>
+            </div>
+            <div class="dashboard-item" style="background-image: url(https://i.pinimg.com/736x/90/e8/a5/90e8a546d883f14971b3c67b7c2419f5.jpg);">
+                <h2><i style="color: mediumblue;" class="fas fa-gift"></i> Total Offer / Bonus</h2>
+                <p id="totalOfferBonus"></p>
+            </div>
+        </div>
+      </div>
+
+
+
+
+
 
 
 
@@ -188,22 +335,22 @@
   <div>
     <h2>User Expiry Line Graph</h2>
     <canvas id="expiryLineChart"></canvas>
-  </div>
+  </div><br><br>
 
   <div style="display: none;">
     <h2>User Status Pie Chart</h2>
     <canvas id="statusPieChart"></canvas>
-  </div>
+  </div><br><br>
 
   <div>
     <h2>User Line Graph</h2>
     <canvas id="userLineChart"></canvas>
-  </div>
+  </div><br><br>
 
   <div>
     <h2>User Bar Graph</h2>
     <canvas id="userBarChart"></canvas>
-  </div>
+  </div><br><br>
 
   <h2>All User Table</h2>
   <table id="allUserTable">
@@ -220,7 +367,7 @@
       <!-- User data will be added dynamically here -->
     </tbody>
   </table>
-   <br><br>
+   <br><br><br>
   <h2>Paid User Table</h2>
   <table id="paidUserTable">
     <thead>
@@ -236,7 +383,7 @@
       <!-- Paid user data will be added dynamically here -->
     </tbody>
   </table>
-   <br><br>
+   <br><br><br>
   <h2>Unpaid User Table</h2>
   <table id="unpaidUserTable">
     <thead>
@@ -258,8 +405,114 @@
 
 </div>
 
+<!-- Font Awesome CDN (for bell icon) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.js"></script>
 <script src="OFFICIAL.js"></script>
+<script type="text/javascript">
+  
+
+//========================{ TO MANAGE DASHBOARD CALCULATION }=====================//
+           //=== CHANGE THE FOLLOWINGI ===//
+  //  1,totalPricePerDay  2, totalOfferBonus
+
+         var today = new Date();
+
+         // Initialize totalPaidAmount variable
+         var totalPaidAmount = 0;
+
+        // Calculate and display total balance
+        var totalPricePerDay = 200;
+        var totalOfferBonus = 0;
+        var totalBalance = users.reduce((sum, user) => {
+            // Calculate days between registerDate and expireDate
+            const daysDiff = Math.floor((user.expireDate - user.registerDate) / (1000 * 60 * 60 * 24));
+            return sum + (daysDiff * totalPricePerDay - totalOfferBonus); // Assuming price per day is 100
+        }, 0);
+
+        for (var i = 0; i < users.length; i++) {
+        var user = users[i];
+        // Check if today is between paidDate and expireDate
+        if (today >= user.paidDate && today <= user.expireDate) {
+        // Calculate the number of days between paidDate and expireDate
+        var daysDiff = Math.ceil((user.expireDate - today) / (1000 * 60 * 60 * 24));
+        // Calculate the paid amount for today
+        var paidToday = daysDiff * totalPricePerDay; // Assuming price per day is 100
+        // Add paidToday to totalPaidAmount
+        totalPaidAmount += paidToday;
+    }
+}
+        document.getElementById("totalBalance").textContent = "Tsh." + totalBalance;
+        document.getElementById("totalOfferBonus").textContent = "Tsh." + totalOfferBonus;
+        document.getElementById("totalPricePerDay").textContent = "Tsh." + totalPricePerDay;
+
+        // Display the totalPaidAmount in the HTML container
+        document.getElementById("totalPaidAmount").textContent ="Tsh." + totalPaidAmount;
+
+   
+
+
+
+
+
+
+
+
+        // Calculate and display total balance
+ //       var totalPricePerDay = 100;
+ //       var totalOfferBonus = 50;
+ //       var totalBalance = users.reduce((sum, user) => {
+            // Calculate days between registerDate and expireDate
+ //           const daysDiff = Math.floor((user.expireDate - user.registerDate) / (1000 * 60 * 60 * 24));
+ //           return sum + (daysDiff * totalPricePerDay - totalOfferBonus); // Assuming price per day is 100
+ //       }, 0);
+ //       document.getElementById("totalBalance").textContent = "Tsh." + totalBalance;
+ //       document.getElementById("totalOfferBonus").textContent = "Tsh." + totalOfferBonus;
+ //       document.getElementById("totalPricePerDay").textContent = "Tsh." + totalPricePerDay;
+          
+          // bonus minize total balance
+
+
+
+        // Calculate and display total users paid
+        var totalUsersPaid = users.length;
+        document.getElementById("totalUsersPaid").textContent = totalUsersPaid;
+
+        // Calculate and display total paid today
+        var today = new Date();
+        var totalPaidToday = users.filter(user => user.paidDate.toDateString() === today.toDateString()).length;
+        document.getElementById("totalPaidToday").textContent = totalPaidToday;
+
+
+        //////////////////////////////////
+          // Calculate and display total balance
+    //    var totalBalance = users.reduce((sum, user) => {
+            // Calculate days between registerDate and expireDate
+    //        const daysDiff = Math.floor((user.expireDate - user.registerDate) / (1000 * 60 * 60 * 24));
+   //         return sum + (daysDiff * 100); // Assuming price per day is 100
+   //     }, 0);
+   //     document.getElementById("totalBalance").textContent = "Tsh." + totalBalance;
+
+        /////////////////////////////////
+
+
+
+        // Function to toggle user list visibility
+        function toggleUserList() {
+            var userList = document.getElementById("userList");
+            userList.classList.toggle("show-list");
+
+            if (userList.classList.contains("show-list")) {
+                // Show user list
+                userList.innerHTML = "<h2>User List</h2><ul>" + users.map(user => "<li>" + user.username + ": Tsh." + (user.totalPaid ) + "</li>").join("") + "</ul>";
+            } else {
+                // Hide user list
+                userList.innerHTML = "";
+            }
+        }
+
+</script>
 
 </body>
 </html>
